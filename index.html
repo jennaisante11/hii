@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f9e3e3;
+    font-family: 'Arial', sans-serif;
+    flex-direction: column;
+  }
+  
+  .container {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    color: #d32f2f;
+  }
+  
+  .buttons {
+    margin-top: 20px;
+  }
+  
+  .yes-button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    margin-right: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .no-button {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .gif_container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be Mine?</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Will you be mine?</h1>
+        <div class="buttons">
+            <button class="yes-button" onclick="handleYesClick()">Yes</button>
+            <button class="no-button" onclick="handleNoClick()">No</button>
+        </div>
+        <div class="gif_container">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW5lenZyZHI5OXM2eW95b3pmMG40cWVrMDhtNjVuM3A4dGNxa2g2dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/VM1fcpu2bKs1e2Kdbj/giphy.gif" alt="Cute GIF">
+        </div>
+    </div>
+    <script>
+  let scale = 1;
+
+  function handleYesClick() {
+    window.location.href = "yes.html";
+  }
+
+  function handleNoClick() {
+    const noButton = document.querySelector(".no-button");
+    scale += 0.3; // tiap klik tambah besar
+    noButton.style.transform = `scale(${scale})`;
+    noButton.style.transition = "transform 0.3s ease";
+
+    // Jika sudah terlalu besar, tampilkan pesan
+    if (scale >= 5) {
+  const surat = document.createElement('div');
+  surat.style.position = "fixed";
+  surat.style.top = 0;
+  surat.style.left = 0;
+  surat.style.width = "100vw";
+  surat.style.height = "100vh";
+  surat.style.backgroundColor = "white";
+  surat.style.color = "#333";
+  surat.style.padding = "40px";
+  surat.style.fontFamily = "serif";
+  surat.style.overflowY = "auto";
+  surat.style.zIndex = 9999;
+
+  surat.innerHTML = `
+    <h2 style="text-align:center;">Surat Lamaran Kerja</h2>
+    <p>Kepada Yth.</p>
+    <p>HRD Cinta Sejati</p>
+    <p>Di Tempat</p>
+
+    <p>Dengan hormat,</p>
+    <p>Saya yang bernama <strong>Tombol No</strong>, dengan ini mengajukan lamaran untuk menjadi pasangan Anda secara penuh waktu. Meskipun sebelumnya saya ditolak, saya percaya bahwa dengan komitmen, cinta, dan ketekunan, saya mampu menjalankan tugas ini dengan baik.</p>
+
+    <p>Saya memiliki pengalaman dalam kesetiaan, humor yang cukup, dan kemampuan untuk menghibur saat dibutuhkan. Bersama ini saya lampirkan hati saya yang tulus sebagai bukti kesungguhan saya.</p>
+
+    <p>Demikian surat lamaran ini saya buat. Besar harapan saya untuk mendapatkan kesempatan wawancara (atau ngedate bareng). Atas perhatian dan waktunya, saya ucapkan terima kasih.</p>
+
+    <p style="margin-top:30px;">Hormat saya,<br><strong>Tombol No</strong></p>
+  `;
+
+  document.body.appendChild(surat);
+}
+  }
+</script>
+
+</body>
+</html>
